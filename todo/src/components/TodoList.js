@@ -2,7 +2,7 @@ import React from 'react';
 import './TodoList.css';
 
 import {connect} from 'react-redux';
-import {addTodo, toggleTodo, clearCompleted} from "../actions";
+import {addTodo, toggleTodo, clearCompleted, removeTodo} from "../actions";
 
 class TodoList extends React.Component {
   state = {
@@ -41,6 +41,11 @@ class TodoList extends React.Component {
     this.props.clearCompleted();
   };
 
+  handleRemoveTodo = (id) => {
+    console.log(id);
+    this.props.removeTodo(id);
+
+  };
 
   render() {
     return (
@@ -70,7 +75,9 @@ class TodoList extends React.Component {
 
                 >{todo.value}
               </h4>
-              <button> Delete todo using id </button>
+              <button
+                onClick={ () => this.handleRemoveTodo(todo.id)}
+              > Delete todo using id </button>
           </div>
 
           ))}
@@ -116,7 +123,7 @@ const mapStateToProps = state => {
 
 export default connect (
   mapStateToProps,
-  {addTodo, toggleTodo, clearCompleted}
+  {addTodo, toggleTodo, clearCompleted, removeTodo}
 
 
 )(TodoList);
