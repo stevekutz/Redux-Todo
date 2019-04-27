@@ -18,7 +18,7 @@ const rootElement = document.getElementById('root');
 
 ReactDOM.render(
   <Provider store = {store}>
-    <TodoList />
+    <TodoList titleProp = "My normal Prop Todo List !!! "/>
   </Provider>
 
   , rootElement);

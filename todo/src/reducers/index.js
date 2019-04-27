@@ -9,10 +9,12 @@ const initialState = {
       {
         value: 'build reducer',
         completed: false,
+        id: 1,
       },
       {
         value: 'make containers',
         completed: false,
+        id: 2,
       },
   ]
 };

@@ -7,8 +7,8 @@ import {connect} from 'react-redux';
 class TodoList extends React.Component {
   state = {
     value: '',
-    completed: false
-
+    completed: false,
+    id: '',
 
   };
 
@@ -16,8 +16,13 @@ class TodoList extends React.Component {
   render() {
     return (
       <div>
-        <h3> My TodoList !!! </h3>
+        <h3> {this.props.titleProp} </h3>
 
+        {this.props.todosAsProps &&
+          this.props.todosAsProps.map ((todo, index) => (
+            <h4 key = {todo.id}>{todo.value}{todo.completed.toString()}</h4>
+
+          ))}
 
       </div>
 
