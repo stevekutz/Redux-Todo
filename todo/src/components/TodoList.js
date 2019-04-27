@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 
 class TodoList extends React.Component {
   state = {
-    value: '',
+    newTodo: '',
     completed: false,
     id: '',
 
@@ -23,6 +23,23 @@ class TodoList extends React.Component {
             <h4 key = {todo.id}>{todo.value}{todo.completed.toString()}</h4>
 
           ))}
+
+
+       <form onSubmit = {this.handleSubmit}>
+         <input
+           type = 'text'
+           value = {this.state.newValue}
+           onChange = {this.hanldeChange}
+           placeholder = 'add a todo here'
+           name = "newTodo"
+
+           />
+
+
+
+
+
+       </form>
 
       </div>
 
