@@ -25,7 +25,7 @@ function reducer (state = initialState, action ) {
 
     case ADD_TODO:
 
-      if(action.payload) {
+      if(action.payload) {    // do NOT add empty todo !!!
         return {
           ...state,
           todos: [
@@ -33,7 +33,7 @@ function reducer (state = initialState, action ) {
             {value: action.payload, completed: false, id: Date.now()}
           ]
         };
-      }
+     }
 
 
     case TOGGLE_TODO:

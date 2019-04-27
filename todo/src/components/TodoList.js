@@ -16,8 +16,8 @@ class TodoList extends React.Component {
   // set up for adding another input field...
   handleChange = e => {
     e.preventDefault();
- //   this.setState({[e.target.name]: e.target.value})
-    this.setState({newTodo: e.target.value})
+    this.setState({[e.target.name]: e.target.value})
+ //   this.setState({newTodo: e.target.value})
   };
 
   handleSubmit = e => {
@@ -37,16 +37,16 @@ class TodoList extends React.Component {
 
   };
 
-//this.props.todosAsProps &&
-
   render() {
     return (
-      <div>
-        <h3> {this.props.titleProp} </h3>
+      <div className = "todoListContainer">
+        <h3 className = "titleProp"> {this.props.titleProp} </h3>
 
-        {
+        { this.props.todosAsProps &&
           this.props.todosAsProps.map ((todo, index) => (
+            <div className = "todoListItem">
             <h4
+
               key = {todo.id}
               onClick = { () => this.handleToggleTodo(todo.id)}
               style = {
@@ -55,20 +55,24 @@ class TodoList extends React.Component {
                       textDecoration: 'line-through',
                       textDecorationStyle: 'wavy',
                       textDecorationColor: 'white',
-
                 }
                   : null
 
               }
 
 
-            >{todo.value}</h4>
+            >{todo.value}
+            </h4>
+          </div>
 
           ))}
 
 
-       <form onSubmit = {this.handleSubmit}>
-         <input
+       <form
+         className = "formContainer"
+         onSubmit = {this.handleSubmit}>
+
+         <input className = "inputField"
            type = 'text'
            value = {this.state.newTodo}
            onChange = {this.handleChange}
@@ -76,7 +80,11 @@ class TodoList extends React.Component {
            name = "newTodo"
 
            />
-          <button>Add Todo</button>
+           <div className = "buttonContainer">
+             <button>Add Todo</button>
+             <button> Clear Completed Todos </button>
+           </div>
+
 
        </form>
 
