@@ -24,15 +24,17 @@ function reducer (state = initialState, action ) {
 
 
     case ADD_TODO:
-      return {
-        ...state,
-        todos: [
-          ...state.todos,
-          {value: action.payload, completed: false, id: Date.now()}
-        ]
 
+      if(action.payload) {
+        return {
+          ...state,
+          todos: [
+            ...state.todos,
+            {value: action.payload, completed: false, id: Date.now()}
+          ]
+        };
+      }
 
-      };
 
     case TOGGLE_TODO:
       return {

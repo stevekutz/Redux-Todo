@@ -16,7 +16,8 @@ class TodoList extends React.Component {
   // set up for adding another input field...
   handleChange = e => {
     e.preventDefault();
-    this.setState({[e.target.name]: e.target.value})
+ //   this.setState({[e.target.name]: e.target.value})
+    this.setState({newTodo: e.target.value})
   };
 
   handleSubmit = e => {
@@ -36,19 +37,29 @@ class TodoList extends React.Component {
 
   };
 
-
+//this.props.todosAsProps &&
 
   render() {
     return (
       <div>
         <h3> {this.props.titleProp} </h3>
 
-        {this.props.todosAsProps &&
+        {
           this.props.todosAsProps.map ((todo, index) => (
             <h4
               key = {todo.id}
               onClick = { () => this.handleToggleTodo(todo.id)}
+              style = {
+                todo.completed
+                  ? { color: 'grey',
+                      textDecoration: 'line-through',
+                      textDecorationStyle: 'wavy',
+                      textDecorationColor: 'white',
 
+                }
+                  : null
+
+              }
 
 
             >{todo.value}</h4>
