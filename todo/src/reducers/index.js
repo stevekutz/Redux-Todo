@@ -1,6 +1,4 @@
-
-
-
+import {ADD_TODO} from "../actions";
 
 
 const initialState = {
@@ -24,7 +22,7 @@ function reducer (state = initialState, action ) {
 
   switch(action.type) {
 
-    /*
+
     case ADD_TODO:
       return {
         ...state,
@@ -36,7 +34,7 @@ function reducer (state = initialState, action ) {
 
       };
 
-    */
+
     default:
       return state;
 

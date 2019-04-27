@@ -2,7 +2,7 @@ import React from 'react';
 import './TodoList.css';
 
 import {connect} from 'react-redux';
-
+import {addTodo} from "../actions";
 
 class TodoList extends React.Component {
   state = {
@@ -38,7 +38,7 @@ class TodoList extends React.Component {
 
         {this.props.todosAsProps &&
           this.props.todosAsProps.map ((todo, index) => (
-            <h4 key = {todo.id}>{todo.value}{todo.completed.toString()}</h4>
+            <h4 key = {todo.id}>{todo.value}</h4>
 
           ))}
 
@@ -46,16 +46,13 @@ class TodoList extends React.Component {
        <form onSubmit = {this.handleSubmit}>
          <input
            type = 'text'
-           value = {this.state.newValue}
+           value = {this.state.newTodo}
            onChange = {this.handleChange}
            placeholder = 'add a todo here'
            name = "newTodo"
 
            />
-
-
-
-
+          <button>Add Todo</button>
 
        </form>
 
@@ -75,7 +72,7 @@ const mapStateToProps = state => {
 
 export default connect (
   mapStateToProps,
-  {}
+  {addTodo}
 
 
 )(TodoList);
