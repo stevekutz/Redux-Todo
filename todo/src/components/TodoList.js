@@ -45,27 +45,32 @@ class TodoList extends React.Component {
   render() {
     return (
       <div className = "todoListContainer">
-        <h3 className = "titleProp"> {this.props.titleProp} </h3>
+
+        <div className = "headerTitles">
+          <h3 className = "titleProp"> {this.props.titleProp} </h3>
+          <h5 className = "subTitleProp">{this.props.subTitleProp}</h5>
+        </div>
 
         { this.props.todosAsProps &&
           this.props.todosAsProps.map ((todo, index) => (
             <div className = "todoListItem">
-            <h4
+              <h4
 
-              key = {todo.id}
-              onClick = { () => this.handleToggleTodo(todo.id)}
-              style = {
-                todo.completed
-                  ? { color: 'grey',
-                      textDecoration: 'line-through',
-                      textDecorationStyle: 'wavy',
-                      textDecorationColor: 'white',
+                key = {todo.id}
+                onClick = { () => this.handleToggleTodo(todo.id)}
+                style = {
+                  todo.completed
+                    ? { color: 'grey',
+                        textDecoration: 'line-through',
+                        textDecorationStyle: 'wavy',
+                        textDecorationColor: 'white',
+                  }
+                    : null
                 }
-                  : null
-              }
 
-              >{todo.value}
-            </h4>
+                >{todo.value}
+              </h4>
+              <button> Delete todo using id </button>
           </div>
 
           ))}

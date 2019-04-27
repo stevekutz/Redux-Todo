@@ -18,7 +18,10 @@ const rootElement = document.getElementById('root');
 
 ReactDOM.render(
   <Provider className = "provider" store = {store}>
-    <TodoList titleProp = "My normal Prop Todo List !!! "/>
+    <TodoList
+      titleProp = "My Todo List !!!"
+      subTitleProp = "(as prop passed down)"
+    />
   </Provider>
 
   , rootElement);

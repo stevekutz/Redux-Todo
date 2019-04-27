@@ -1,6 +1,8 @@
 export const ADD_TODO = 'ADD_TODO';
 export const TOGGLE_TODO = 'TOGGLE_TODO';
 export const CLEAR_COMPLETED = 'CLEAR_COMPLETED';
+export const REMOVE_TODO = 'REMOVE_TODO';
+
 
 export function addTodo(newTodo) {
   return {
@@ -22,3 +24,10 @@ export function clearCompleted() {
     payload: null
   }
 }
+
+export const deleteTodo = (id) => {
+  return {
+    type: REMOVE_TODO,
+    payload: id
+  }
+};
