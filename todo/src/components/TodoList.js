@@ -2,7 +2,7 @@ import React from 'react';
 import './TodoList.css';
 
 import {connect} from 'react-redux';
-import {addTodo} from "../actions";
+import {addTodo, toggleTodo} from "../actions";
 
 class TodoList extends React.Component {
   state = {
@@ -31,6 +31,13 @@ class TodoList extends React.Component {
     );
   };
 
+  handleToggleTodo = id => {
+    this.props.toggleTodo(id);
+
+  };
+
+
+
   render() {
     return (
       <div>
@@ -38,7 +45,13 @@ class TodoList extends React.Component {
 
         {this.props.todosAsProps &&
           this.props.todosAsProps.map ((todo, index) => (
-            <h4 key = {todo.id}>{todo.value}</h4>
+            <h4
+              key = {todo.id}
+              onClick = { () => this.handleToggleTodo(todo.id)}
+
+
+
+            >{todo.value}</h4>
 
           ))}
 
@@ -72,7 +85,7 @@ const mapStateToProps = state => {
 
 export default connect (
   mapStateToProps,
-  {addTodo}
+  {addTodo, toggleTodo}
 
 
 )(TodoList);
