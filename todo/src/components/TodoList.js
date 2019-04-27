@@ -13,6 +13,24 @@ class TodoList extends React.Component {
   };
 
 
+  // set up for adding another input field...
+  handleChange = e => {
+    e.preventDefault();
+    this.setState({[e.target.name]: e.target.value})
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+    this.props.addTodo(this.state.newTodo);
+    this.setState(
+      {
+        newTodo: '',
+        completed: false,
+        id: '',
+      }
+    );
+  };
+
   render() {
     return (
       <div>
@@ -29,7 +47,7 @@ class TodoList extends React.Component {
          <input
            type = 'text'
            value = {this.state.newValue}
-           onChange = {this.hanldeChange}
+           onChange = {this.handleChange}
            placeholder = 'add a todo here'
            name = "newTodo"
 
