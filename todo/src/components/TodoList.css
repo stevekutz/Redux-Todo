@@ -13,12 +13,14 @@ font-family: 'Merienda', cursive;
 
 .todoListContainer {
   border: 1px solid blue;
+  background: ivory;
   margin: 0 auto;
   width: 40%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   font-size: 62.5%;
+  align-items: center;
 }
 
 .titleProp {
@@ -56,10 +58,21 @@ font-family: 'Merienda', cursive;
   width: 80%;
 }
 
-.buttonContainer {
+.addTodoContainer {
   border: 1px solid orangered;
   margin: 2px auto;
   width: 70%;
   display: flex;
   justify-content: space-evenly;
+}
+
+.buttonStyle {
+  border: 1px solid blue;
+  background: pink;
+  border-radius: 4px;
+  outline-color: teal;
+  outline-style: none;
+  width: 150px;
+  padding: 2px;
+  margin: 2px;
 }

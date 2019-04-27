@@ -2,7 +2,7 @@ import React from 'react';
 import './TodoList.css';
 
 import {connect} from 'react-redux';
-import {addTodo, toggleTodo} from "../actions";
+import {addTodo, toggleTodo, clearCompleted} from "../actions";
 
 class TodoList extends React.Component {
   state = {
@@ -37,6 +37,11 @@ class TodoList extends React.Component {
 
   };
 
+  handleClearCompleted = () => {
+    this.props.clearCompleted();
+  };
+
+
   render() {
     return (
       <div className = "todoListContainer">
@@ -57,11 +62,9 @@ class TodoList extends React.Component {
                       textDecorationColor: 'white',
                 }
                   : null
-
               }
 
-
-            >{todo.value}
+              >{todo.value}
             </h4>
           </div>
 
@@ -80,13 +83,17 @@ class TodoList extends React.Component {
            name = "newTodo"
 
            />
-           <div className = "buttonContainer">
-             <button>Add Todo</button>
-             <button> Clear Completed Todos </button>
+           <div className = "addTodoContainer">
+             <button className = "buttonStyle">Add Todo</button>
+
            </div>
 
 
        </form>
+        <button
+          className = "buttonStyle"
+          onClick = {this.handleClearCompleted}
+        > Clear Completed Todos </button>
 
       </div>
 
@@ -104,7 +111,7 @@ const mapStateToProps = state => {
 
 export default connect (
   mapStateToProps,
-  {addTodo, toggleTodo}
+  {addTodo, toggleTodo, clearCompleted}
 
 
 )(TodoList);

@@ -1,4 +1,4 @@
-import {ADD_TODO, TOGGLE_TODO} from "../actions";
+import {ADD_TODO, TOGGLE_TODO, CLEAR_COMPLETED} from "../actions";
 
 
 const initialState = {
@@ -50,6 +50,14 @@ function reducer (state = initialState, action ) {
           }
 
         })};
+
+    case CLEAR_COMPLETED:
+      console.log("CLEAR called");
+      return {
+     // ...state,
+        todos: state.todos.filter(todoItem => todoItem.completed === false)
+      };
+
 
     default:
       return state;

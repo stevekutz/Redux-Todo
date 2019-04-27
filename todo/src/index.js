@@ -17,7 +17,7 @@ const store = createStore(
 const rootElement = document.getElementById('root');
 
 ReactDOM.render(
-  <Provider store = {store}>
+  <Provider className = "provider" store = {store}>
     <TodoList titleProp = "My normal Prop Todo List !!! "/>
   </Provider>
 
