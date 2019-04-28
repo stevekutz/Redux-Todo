@@ -8,6 +8,7 @@ import {Provider} from 'react-redux';
 import rootReducer from './reducers';
 
 import TodoList from './components/TodoList';
+import TodoListOA from '/components/TodoListOA';
 
 const store = createStore(
   rootReducer,
@@ -22,6 +23,11 @@ ReactDOM.render(
       titleProp = "My Todo List !!!"
       subTitleProp = "(as prop passed down)"
     />
+    <TodoListOA
+      titleProp = "My Todo List !!!"
+      subTitleProp = "(as prop passed down)"
+    />
+
   </Provider>
 
   , rootElement);

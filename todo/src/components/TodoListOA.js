@@ -56,8 +56,8 @@ class TodoListOA extends React.Component {
           <h5 className = "subTitleProp">{this.props.subTitleProp}</h5>
         </div>
 
-        { this.props.todosAsProps &&
-        this.props.todosAsProps.map ((todo, index) => (
+        { this.props.todosAsPropsOA &&
+        this.props.todosAsPropsOA.map ((todo, index) => (
           <div className = "todoListItem">
             <h4
 
@@ -116,7 +116,7 @@ class TodoListOA extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    todosAsProps: state.todos
+    todosAsPropsOA: state.todos
 
   };
 };
