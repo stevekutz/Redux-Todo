@@ -116,7 +116,7 @@ class TodoListOA extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    todosAsPropsOA: state.todos
+    todosAsPropsOA: state.todosOA
 
   };
 };

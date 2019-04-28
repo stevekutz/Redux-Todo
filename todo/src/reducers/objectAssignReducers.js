@@ -2,15 +2,15 @@ import {ADD_TODO_OA, TOGGLE_TODO_OA,  CLEAR_COMPLETED, REMOVE_TODO} from "../act
 
 
 const initialState = {
-  todos:
+  todosOA:
     [
       {
-        value: 'build reducer',
+        value: 'build reducerOA',
         completed: false,
         id: 1,
       },
       {
-        value: 'make containers',
+        value: 'make containersOA',
         completed: false,
         id: 2,
       },
@@ -28,13 +28,13 @@ export function objectAssignReducers (state = initialState, action ) {
         return Object.assign
         ( {},
           state,
-          { todos: [...state.todos, {value: action.payload, completed: false, id: Date.now()}] }
+          { todosOA: [...state.todosOA, {value: action.payload, completed: false, id: Date.now()}] }
         );
       }
 
     case TOGGLE_TODO_OA:
       return Object.assign( {}, state,
-        { todos: state.todos.map(todoTask => {
+        { todosOA: state.todosOA.map(todoTask => {
             if (todoTask.id === action.payload) {
               return {
                 ...todoTask,
@@ -54,13 +54,13 @@ export function objectAssignReducers (state = initialState, action ) {
       console.log("CLEAR called");
       return {
         // ...state,    // NOT NEEDED since we are filtering anyway!!!!
-        todos: state.todos.filter(todoItem => todoItem.completed === false)
+        todosOA: state.todos.filter(todoItem => todoItem.completed === false)
       };
 
     case REMOVE_TODO:
       return {
         ...state,
-        todos: state.todos.filter(todoItem => todoItem.id !== action.payload)
+        todosOA: state.todos.filter(todoItem => todoItem.id !== action.payload)
 
       };
 
