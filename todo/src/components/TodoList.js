@@ -17,7 +17,7 @@ class TodoList extends React.Component {
   handleChange = e => {
     e.preventDefault();
     this.setState({[e.target.name]: e.target.value})
- //   this.setState({newTodo: e.target.value})
+  //   this.setState({newTodo: e.target.value})
   };
 
   handleSubmit = e => {
